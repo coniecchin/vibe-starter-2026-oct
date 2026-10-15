@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --font-masthead: "UnifrakturCook", "Chomsky", "Old English Text MT", Georgia, serif;
+  --font-serif: "Newsreader", "Libre Baskerville", Georgia, serif;
+  --font-display: "Fraunces", "Newsreader", Georgia, serif;
+  --font-sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --color-nyt-black: #121212;
+  --color-nyt-grayDark: #333333;
+  --color-nyt-grayMid: #727272;
+  --color-nyt-grayLight: #ebebeb;
+  --color-nyt-border: #e2e2e2;
+  --color-nyt-blue: #567b95;
+  --color-nyt-blueDark: #326891;
+  --color-nyt-liveRed: #d0021b;
+}
+
+@layer utilities {
+  .font-masthead {
+    font-family: var(--font-masthead);
+    letter-spacing: -0.01em;
+  }
+  .headline-lead {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+  }
+  .headline-secondary {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .headline-opinion {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    line-height: 1.22;
+  }
+  .summary-text {
+    font-family: "Newsreader", Georgia, serif;
+    line-height: 1.38;
+  }
+  .border-nyt {
+    border-color: #e2e2e2;
+  }
+  .border-double-nyt {
+    border-bottom: 3px double #121212;
+  }
+}
+
+/* Custom newspaper print feeling */
+::selection {
+  background-color: #567b95;
+  color: #ffffff;
+}
