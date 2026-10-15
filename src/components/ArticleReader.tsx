@@ -4,6 +4,7 @@ import {
   ThumbsUp, Type, Sun, Moon, Clock, Calendar, Check
 } from 'lucide-react';
 import { Article, OpinionPiece } from '../data/newsData';
+import { PressSecretaryImage } from './EditorialImages';
 
 interface ArticleReaderProps {
   article: Article | OpinionPiece;
@@ -293,16 +294,22 @@ export const ArticleReader: React.FC<ArticleReaderProps> = ({
         {'imageUrl' in article && article.imageUrl && (
           <figure className="mb-10 space-y-2">
             <div className="w-full bg-[#f2f2f2] dark:bg-neutral-800 border border-nyt overflow-hidden">
-              <img
-                src={article.imageUrl}
-                alt={article.imageCaption || article.title}
-                referrerPolicy="no-referrer"
-                className="w-full h-auto object-cover max-h-[480px] object-top"
-              />
+              {article.id === 'trump-press-secretary' ? (
+                <div className="w-full max-h-[480px] overflow-hidden">
+                  <PressSecretaryImage className="w-full h-full" />
+                </div>
+              ) : (
+                <img
+                  src={article.imageUrl}
+                  alt={article.imageCaption || article.title}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-auto object-cover max-h-[480px] object-top"
+                />
+              )}
             </div>
-            <figcaption className="flex flex-col sm:flex-row justify-between sm:items-baseline text-[11px] text-nyt-grayMid border-b border-nyt pb-2 gap-1">
+            <figcaption className="flex flex-col sm:flex-row justify-between sm:items-baseline text-[11px] text-nyt-grayMid border-b border-nyt pb-2 gap-1 font-sans">
               <span>{article.imageCaption}</span>
-              <span className="shrink-0 font-mono text-[10px] uppercase">{article.imageCredit}</span>
+              <span className="shrink-0 font-mono text-[10px] uppercase tracking-wider">{article.imageCredit}</span>
             </figcaption>
           </figure>
         )}

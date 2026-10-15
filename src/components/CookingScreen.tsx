@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Clock, Star, Users, ChefHat, Check, Bookmark, Printer } from 'lucide-react';
+import { ArrowLeft, Clock, Star, Users, ChefHat, Check, Bookmark, Printer, Sparkles } from 'lucide-react';
 import { COOKING_SPOTLIGHT, Recipe } from '../data/newsData';
+import { CookingChickenImage } from './EditorialImages';
 
 interface CookingScreenProps {
   onBack: () => void;
@@ -97,8 +98,8 @@ export const CookingScreen: React.FC<CookingScreenProps> = ({ onBack, spotlightR
       </div>
 
       {/* Hero Recipe Banner */}
-      <div className="border border-nyt p-6 sm:p-8 bg-neutral-50 mb-10 rounded-sm">
-        <div className="max-w-3xl">
+      <div className="border border-nyt p-6 sm:p-8 bg-neutral-50 mb-10 rounded-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="lg:col-span-7">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-700 mb-2">
             <span>Cooking Spotlight</span>
             <span>·</span>
@@ -147,6 +148,13 @@ export const CookingScreen: React.FC<CookingScreenProps> = ({ onBack, spotlightR
               <Printer className="w-3.5 h-3.5" />
               <span>Print Recipe</span>
             </button>
+          </div>
+        </div>
+
+        {/* Right: Recipe Visual Artwork */}
+        <div className="lg:col-span-5">
+          <div className="border border-nyt overflow-hidden rounded-xs shadow-xs">
+            <CookingChickenImage />
           </div>
         </div>
       </div>
